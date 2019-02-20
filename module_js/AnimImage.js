@@ -29,7 +29,7 @@ export class AnimImage {
         */
             
         for (let i = 0; i< lesImages; i++){
-            let elmImage = this.creerElement(this.elmParent, 'div', "", 'uneImage','pannel')
+            let elmImage = this.creerElement(this.elmParent, 'div', "", 'uneImage','panel')
             elmImage.style.animationDelay = (i * 0.5) + "s";
             elmImage.style.backgroundImage = "url(../image/" + i +".jpg)";
         }

@@ -28,7 +28,7 @@ function animationImage()
 {
     /* Une fois que l'animation des mots est terminé la fonction animLettre s'exécutera */ 
 	console.log('debut animation image')
-	let wrapper = document.querySelector('.gallerie')
+	let wrapper = document.querySelector('.wrapper')
 	const lesImages = 15;
 	let  monAnimImage = new AnimImage(lesImages, wrapper, finAnim)	
 }
