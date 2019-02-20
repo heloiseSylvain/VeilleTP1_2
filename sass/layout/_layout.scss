@@ -1,5 +1,5 @@
 html{
-	background-image: url("../../image/chat.png");
+	background-color: black;
 }
 
 body {
@@ -96,6 +96,22 @@ body {
   grid-column: 1 / -1;
 }
 
+.header{
+	display: flex;
+	justify-content: space-between;
+	height: 50vh;
+}
+
+#header-left{
+	width: 50vw;
+}
+
+#header-right{
+	width: 50vw;
+	border-left: 1px solid white;
+	background-image: url("../../image/chat.png");
+}
+
 .footer{
 	background-color: black;
 }
@@ -103,7 +119,6 @@ body {
 .wrapper > * {
 
   color: #fff;
-  border-radius: 5px;
   padding: 20px;
   font-size: 150%;
   margin-bottom: 10px;
