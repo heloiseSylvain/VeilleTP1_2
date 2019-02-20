@@ -5,17 +5,22 @@ import {AnimLettre} from './AnimLettre.js' //
 
 
 /* l'élement de la page qui contiendra les éléments créés dynamiquement */
-let elmHeader = document.querySelector('.header')
-let intro = new Introduction(contenuIntro, elmHeader, animationLettre)
+let p1 = document.getElementById('1')
 
 // debutQuestionnaire()
+
+    /* Une fois que l'animation des mots est terminé la fonction animLettre s'exécutera */ 
+	console.log('debut animation lettre')
+	const lesLettres = 'GAlleRie'
+	let  monAnimLettre = new AnimLettre(lesLettres, p1, animationLettre)	
 
 function animationLettre()
 {
     /* Une fois que l'animation des mots est terminé la fonction animLettre s'exécutera */ 
-	console.log('debut animation lettre')
-	const lesLettres = 'Veille-technologique'
-	let  monAnimLettre = new AnimLettre(lesLettres, elmHeader, finAnim)	
+	console.log('debut animation lettre 2')
+	let p2 = document.getElementById('2')
+	const lesLettres2 = 'cHAleuReuse'
+	let  monAnimLettre = new AnimLettre(lesLettres2, p2, finAnim)	
 }
 
 

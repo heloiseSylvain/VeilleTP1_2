@@ -28,17 +28,16 @@ export class AnimLettre {
         Les éléments seront intégré dans le conteneur elmParent
         */
        let i = 0;
-       const tabCouleur = ['#CC231E', '#235E6F' , '#009900', '#34A65F', '#0F8A5F','#F5624D']
        let nbLettres = lesLettres.length;
         let elmConteneur = this.creerElement(this.elmParent,
-            'section',
+            'p',
             '',
             'mot')
             
         for (let uneLettre of lesLettres){
             let elmLettre = this.creerElement(elmConteneur, 'div', uneLettre, 'mot')
             elmLettre.style.animationDelay = (i * 0.5) + "s";
-            elmLettre.style.color = tabCouleur[(i++)%7]    
+            i++    
         }
 
         /* On garde une référence sur la fonction terminerIntro */
@@ -53,16 +52,22 @@ export class AnimLettre {
         }
         noeud.classList.add(classCSS)
         elmParent.appendChild(noeud)
+
+        /* SI le nombre de lettres est égal aux nombres d'enfants, on passe à l'animation suivante*/ 
+        if(this.lesLettres.length == elmParent.childElementCount){
+            noeud.addEventListener('animationend', this.passerVersAnimationSuivante.bind(this))
+            
+        }
         return noeud
     }
 
     terminerIntro(evt) {
-        this.elmParent.firstChild.classList.add('deplacementContenuIntro')
-        this.elmParent.firstChild.addEventListener('animationend', this.passerVersAnimationSuivante.bind(this))
+        console.log(evt)
+        this.elmParent.lastChild.addEventListener('animationend', this.passerVersAnimationSuivante.bind(this))
     }
 
     passerVersAnimationSuivante(evt) {
-        Util.detruireTousLesNoeud(this.elmParent, this.elmParent)
+        console.log("animation suivante")
         this.fonction()
     }
 
