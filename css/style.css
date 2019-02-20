@@ -681,6 +681,7 @@ big {
 .uneImage {
   -webkit-animation: animationLettre 1s both;
           animation: animationLettre 1s both;
+  background-size: 100%, auto;
 }
 
 @keyframes animationLettre {

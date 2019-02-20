@@ -58,6 +58,7 @@ export class AnimLettre {
             noeud.addEventListener('animationend', this.passerVersAnimationSuivante.bind(this))
             
         }
+
         return noeud
     }
 
