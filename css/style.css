@@ -376,7 +376,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: "Roboto", arial, sans-serif;
+  font-family: "Major Mono Display", monospace;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -404,7 +404,7 @@ address {
 
 pre {
   background: #eee;
-  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-family: "Major Mono Display", monospace;
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -415,7 +415,7 @@ pre {
 }
 
 code, kbd, tt, var {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-family: "Major Mono Display", monospace;
   font-size: 15px;
   font-size: 0.9375rem;
 }
@@ -790,7 +790,7 @@ body {
 }
 
 .menu {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
   text-align: center;
   /*Pour cet exemple, on fixe la largeur du menu à 100% ou 100vw*/
   width: 100vw;
@@ -806,9 +806,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -827,69 +827,62 @@ body {
   display: none;
 }
 
-.sidebar {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: sidebar;
-}
-
-.sidebar2 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  grid-area: sidebar2;
-}
-
-.content {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: content;
-}
-
-.header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: header;
-}
-
-.footer {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  grid-area: footer;
-}
-
-.conteneur {
-  background-color: black;
-  color: #444;
-}
-
-/* conteneur est un élément flex et en même temps un conteneur grid */
-.conteneur {
-  /*Sa largeur est fixée à 100%*/
-  width: 100vw;
-  /*Propriété comme item flex - ne peut rétrécir*/
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 100%;
-          flex: 1 0 100%;
-  /*Conteneur flex en colonne pour ses enfants*/
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  overflow-x: hidden;
-  overflow-y: auto;
+.wrapper {
   display: -ms-grid;
   display: grid;
-  width: 100vw;
-  grid-gap: 1em;
-      grid-template-areas: "header" "sidebar" "content" "sidebar2" "footer";
+  grid-gap: 10px;
 }
 
-@media only screen and (min-width: 500px) {
-  .conteneur {
-    -ms-grid-columns: 20% auto;
-        grid-template-columns: 20% auto;
-        grid-template-areas: "header   header" "sidebar  content" "sidebar2 sidebar2" "footer   footer";
-    min-width: 500px;
+/* no grid support? */
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+}
+
+.panel {
+  /* needed for the flex layout*/
+  margin-left: 5px;
+  margin-right: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 200px;
+          flex: 1 1 200px;
+}
+
+.header,
+.footer {
+  margin-left: 5px;
+  margin-right: 5px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  grid-column: 1 / -1;
+}
+
+.wrapper > * {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  margin-bottom: 10px;
+}
+
+/* We need to set the margin used on flex items to 0 as we have gaps in grid.  */
+@supports (display: grid) {
+  .wrapper > * {
+    margin: 0;
   }
 }
 
@@ -932,29 +925,5 @@ body {
   .menu a:first-child {
     border-top: none;
   }
-  .conteneur {
-    grid-gap: 20px;
-    -ms-grid-columns: 120px auto 120px;
-        grid-template-columns: 120px auto 120px;
-        grid-template-areas: "header  header  header" "sidebar content sidebar2" "footer  footer  footer";
-    max-width: 100%;
-  }
-}
-
-.box {
-  background-color: black;
-  color: #fff;
-  padding: 10px;
-  font-size: 150%;
-}
-
-.header,
-.footer {
-  background-color: black;
-}
-
-.sidebar2 {
-  background-color: black;
-  color: white;
 }
 /*# sourceMappingURL=style.css.map */
