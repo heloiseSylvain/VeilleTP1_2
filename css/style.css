@@ -635,7 +635,6 @@ big {
 
 .mot > div {
   font-size: 5vw;
-  color: white;
 }
 
 .mot:nth-child(1) > div {
@@ -910,7 +909,7 @@ body {
 }
 
 .wrapper > * {
-  color: #fff;
+  color: black;
   padding: 20px;
   font-size: 150%;
   margin-bottom: 10px;
