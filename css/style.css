@@ -682,6 +682,15 @@ big {
           animation: animationLettre 1s both;
   background-size: 100%, auto;
   background-repeat: no-repeat;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.uneImage:hover {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 @keyframes animationLettre {
