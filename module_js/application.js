@@ -20,7 +20,7 @@ function animationLettre()
     /* Une fois que l'animation des mots est terminé la fonction animLettre s'exécutera */ 
 	console.log('debut animation lettre 2')
 	let p2 = document.getElementById('2')
-	const lesLettres2 = 'cHAleuReuse'
+	const lesLettres2 = 'cHAt-l\'HeuReuse'
 	let  monAnimLettre = new AnimLettre(lesLettres2, p2, animationImage)	
 }
 
