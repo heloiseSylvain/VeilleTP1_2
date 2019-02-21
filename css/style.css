@@ -750,7 +750,7 @@ a:hover, a:active {
 # layout
 --------------------------------------------------------------*/
 html {
-  background-color: pink;
+  background-color: #ffd6d6;
 }
 
 body {
@@ -803,7 +803,7 @@ body {
 }
 
 .menu {
-  background-color: pink;
+  background-color: #ffd6d6;
   text-align: center;
   /*Pour cet exemple, on fixe la largeur du menu à 100% ou 100vw*/
   width: 100vw;
@@ -869,7 +869,7 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 200px;
           flex: 1 1 200px;
-  background-color: pink;
+  background-color: #ffd6d6;
 }
 
 .header,
@@ -900,7 +900,7 @@ body {
 #header-right {
   width: 50vw;
   border-left: 1px solid white;
-  background-image: url("../../image/chat.png");
+  background-image: url("../../image/chat_rose.png");
   border-top: 1px solid white;
   border-bottom: 1px solid white;
 }
